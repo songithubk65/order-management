@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { createOrder } from "../api/orderApi";
 
+//tạo order
 export default function CreateOrder({ onCreated }) {
   const [customerId, setCustomerId] = useState("");
   const [totalAmount, setTotalAmount] = useState("");
