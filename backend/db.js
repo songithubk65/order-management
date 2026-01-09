@@ -1,7 +1,7 @@
 // db.js
 const { Pool } = require("pg");
 
-// Tạo pool kết nối
+// Tạo pool 
 const pool = new Pool({
   user: "postgres",
   host: "localhost",
