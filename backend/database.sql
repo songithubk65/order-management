@@ -1,0 +1,22 @@
+CREATE TYPE order_status AS ENUM (
+  'NEW',
+  'CONFIRMED',
+  'PROCESSING',
+  'COMPLETED',
+  'CANCELED'
+);
+
+CREATE TABLE customers (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  phone VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE orders (
+  id SERIAL PRIMARY KEY,
+  order_code VARCHAR(50) UNIQUE NOT NULL,
+  customer_id INTEGER REFERENCES customers(id),
+  total_amount NUMERIC(12,2) NOT NULL,
+  status order_status NOT NULL DEFAULT 'NEW',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
